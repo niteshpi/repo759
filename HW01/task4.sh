@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-#SBATCH -c n
+#SBATCH -c 2
 #SBATCH -J FirstSlurm
-#SBATCH -o FirstSlurm-%j.out -e FirstSlurm-%j.err
-echo "The hostname is: $(hostname)"
+#SBATCH -o FirstSlurm.out -e FirstSlurm.err
+echo "$(hostname)"
