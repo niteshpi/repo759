@@ -3,6 +3,7 @@
 #SBATCH -c 2
 #SBATCH -J HW02_task1
 #SBATCH -o HW02_task1.out -e HW02_task1.err
+#SBATCH --mem=8G
 echo "$(hostname)"
 g++ scan.cpp task1.cpp -Wall -O3 -std=c++17 -o task1
 echo "Compilation complete"
