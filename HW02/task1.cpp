@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
 
     std::size_t N = std::stoi(argv[1]);
     std::vector<float> input(N);
+    std::vector<float> output(N);
     for (std::size_t i = 0; i < N; i++) {
         input[i] = 2.0f * (static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX)) - 1.0f;
     }
@@ -31,7 +32,8 @@ int main(int argc, char *argv[]) {
     // Get the starting timestamp
     start = high_resolution_clock::now();
 
-    auto output = scan(input);
+    //auto output = scan(input);
+    scan(input.data(), output.data(), N);
 
     // Get the ending timestamp
     end = high_resolution_clock::now();

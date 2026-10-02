@@ -1,10 +1,15 @@
-#pragma once
+#ifndef SCAN_H
+#define SCAN_H
 
 #include <array>
+#include <cstddef>
 #include <vector>
 
 
+// Runtime-size vector version.
 std::vector<float> scan(const std::vector<float>& input);
 
-template <std::size_t N>
-std::array<float, N> scan_function_array(const std::array<float, N>& input);
+// C-style pointer version
+void scan(const float *arr, float *output, std::size_t n);
+
+#endif
