@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 #SBATCH -p instruction
-#SBATCH -c 20
+#SBATCH -N 1
+#SBATCH --cpus-per-task=20
 #SBATCH -J HW03_task1
 #SBATCH -o HW03_task1.out -e HW03_task1.err
 #SBATCH --mem=8G
 
 # Compile the OpenMP implementation
-# Required command: g++ task1.cpp matmul.cpp -Wall -O3 -std=c++17 -o task1 -fopenmp
 g++ task1.cpp matmul.cpp -Wall -O3 -std=c++17 -o task1 -fopenmp
 
 echo "Compilation complete"
