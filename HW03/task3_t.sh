@@ -7,7 +7,7 @@
 #SBATCH --mem=8G
 
 # The ts value that gave the best result in the threshold sweep.
-BEST_TS=${BEST_TS:-64}
+BEST_TS=1024
 
 # Compile the OpenMP task-based merge sort
 g++ task3.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
@@ -46,7 +46,7 @@ plt.figure(figsize=(8, 5))
 plt.plot(t_vals, time_vals, marker='o', linewidth=2)
 plt.xlabel('t')
 plt.ylabel('Time (ms)')
-plt.title(f'Merge sort scaling for n = 10^6, ts = {min(data, key=lambda x: x[1])[0] if data else "BEST_TS"}')
+plt.title('Merge sort scaling for n = 10^6, ts = 64')
 plt.grid(True, which='major', linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.savefig('task3_t.pdf')
