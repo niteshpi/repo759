@@ -11,7 +11,7 @@ g++ task3.cpp msort.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
 
 echo "Compilation complete"
 
-# Sweep thresholds from 2^1 to 2^10 (2, 4, 8, ..., 1024)
+# Per the assignment: n = 10^6, t = 8, and ts = 2^1, 2^2, ..., 2^10.
 : > task3_ts_scaling.dat
 
 for ((ts=2; ts<=1024; ts*=2)); do
@@ -43,9 +43,9 @@ time_vals = [time_ms for _, time_ms in data]
 plt.figure(figsize=(8, 5))
 plt.plot(ts_vals, time_vals, marker='o', linewidth=2)
 plt.xscale('log', base=2)
-plt.xlabel('ts')
+plt.xlabel('ts (log scale)')
 plt.ylabel('Time (ms)')
-plt.title('Merge sort threshold sweep for n = 10^6, t = 8')
+plt.title('Merge sort threshold sweep (n = 10^6, t = 8)')
 plt.grid(True, which='both', linestyle='--', alpha=0.5)
 plt.tight_layout()
 plt.savefig('task3_ts.pdf')
