@@ -18,16 +18,15 @@ const double board_size = 4.0; // Size of the board
 
 // Function to calculate acceleration due to gravity
 void getAcc(const double pos[][3], const double mass[], double acc[][3], int N) {
-
     // TODO:
     
-    for(int i= 0; i<N; i++){
-        for(int j =0;j<N; j++){
-            if(i!=j){
+    for (int i = 0; i < N; i++) {
+        for (int j = 0;j < N; j++) {
+            if (i != j) {
                 double dx = pos[j][0] - pos[i][0];
                 double dy = pos[j][1] - pos[i][1];
                 double dz = pos[j][2] - pos[i][2];
-                double r2 = dx*dx + dy*dy + dz*dz + softening*softening;
+                double r2 = dx * dx + dy * dy + dz * dz + softening * softening;
                 double inv_r3 = 1.0 / (r2 * sqrt(r2));
                 acc[i][0] += G * (dx * inv_r3) * mass[j];
                 acc[i][1] += G * (dy * inv_r3) * mass[j];
@@ -180,7 +179,7 @@ int main(int argc, char *argv[]) {
         t += dt;
 
         // For debug: save positions to CSV at each step
-        //savePositionsToCSV(pos, N, step, filename);
+        // savePositionsToCSV(pos, N, step, filename);
     }
 
     // Clean up dynamically allocated memory
