@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH -p instruction
 #SBATCH -N 1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=20
 #SBATCH -J HW04_task4
 #SBATCH -o HW04_task4.out -e HW04_task4.err
 #SBATCH --mem=8G
-#SBATCH --time=00:20:00
+#SBATCH --time=00:30:00
 
 # Compile once; the scheduling policy is chosen at runtime via OMP_SCHEDULE.
 g++ task3.cpp -Wall -O3 -std=c++17 -o task3 -fopenmp
