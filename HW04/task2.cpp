@@ -19,9 +19,15 @@ const double board_size = 4.0; // Size of the board
 // Function to calculate acceleration due to gravity
 void getAcc(const double pos[][3], const double mass[], double acc[][3], int N) {
     // TODO:
-    
+
     for (int i = 0; i < N; i++) {
-        for (int j = 0;j < N; j++) {
+        acc[i][0] = 0.0;
+        acc[i][1] = 0.0;
+        acc[i][2] = 0.0;
+    }
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
             if (i != j) {
                 double dx = pos[j][0] - pos[i][0];
                 double dy = pos[j][1] - pos[i][1];
