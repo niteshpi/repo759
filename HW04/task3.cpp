@@ -22,7 +22,7 @@ const double board_size = 4.0; // Size of the board
 void getAcc(const double pos[][3], const double mass[], double acc[][3], int N) {
     // TODO:
 
-#pragma omp parallel for
+#pragma omp parallel for schedule(runtime)
     for (int i = 0; i < N; i++) {
         double ax = 0.0;
         double ay = 0.0;
@@ -160,7 +160,7 @@ int main(int argc, char *argv[]) {
     for (int step = 0; step < Nt; step++) {
 
         // TODO: (1/2) kick
-#pragma omp parallel for
+#pragma omp parallel for schedule(runtime)
         for (int i = 0; i < N; i++) {
             vel[i][0] += acc[i][0] * dt / 2.0;
             vel[i][1] += acc[i][1] * dt / 2.0;
@@ -168,7 +168,7 @@ int main(int argc, char *argv[]) {
         }
 
         // TODO: Drift
-#pragma omp parallel for
+#pragma omp parallel for schedule(runtime)
         for (int i = 0; i < N; i++) {
             pos[i][0] += vel[i][0] * dt;
             pos[i][1] += vel[i][1] * dt;
@@ -176,7 +176,7 @@ int main(int argc, char *argv[]) {
         }
 
         // TODO: Ensure particles stay within the board limits
-#pragma omp parallel for
+#pragma omp parallel for schedule(runtime)
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < 3; j++) {
                 if (pos[i][j] < -board_size) {
@@ -191,7 +191,7 @@ int main(int argc, char *argv[]) {
         getAcc(pos, mass, acc, N);
 
         // TODO: (1/2) kick
-#pragma omp parallel for
+#pragma omp parallel for schedule(runtime)
         for (int i = 0; i < N; i++) {
             vel[i][0] += acc[i][0] * dt / 2.0;
             vel[i][1] += acc[i][1] * dt / 2.0;

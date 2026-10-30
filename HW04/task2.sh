@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -p instruction
 #SBATCH -N 1
-#SBATCH --cpus-per-task=20
+#SBATCH --cpus-per-task=8
 #SBATCH -J HW04_task2
 #SBATCH -o HW04_task2.out -e HW04_task2.err
 #SBATCH --mem=8G
