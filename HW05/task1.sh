@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -p instruction
-#SBATCH -N 1
-#SBATCH --cpus-per-task=8
+#SBATCH --partition=instruction
 #SBATCH -J HW05_task1
-#SBATCH -o HW05_task1.out -e HW05_task1.err
-#SBATCH --mem=8G
+#SBATCH -o output_task1_%j.out -e output_task1_%j.err
 #SBATCH --time=00:10:00
+#SBATCH --mem=16G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
 #SBATCH --gpus-per-task=1
 
 module load nvidia/cuda
